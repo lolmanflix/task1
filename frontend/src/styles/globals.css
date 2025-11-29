@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #__next { height: 100%; }
+body { @apply bg-gray-100 text-gray-800; }
+
+/* Site-wide card and button tweaks for nicer visuals */
+.card { @apply bg-white rounded-2xl shadow-lg p-6; }
+.card-header { @apply border-b pb-3 mb-4; }
+.btn-primary { @apply inline-flex items-center justify-center bg-indigo-600 text-white px-5 py-2.5 rounded-xl font-medium shadow hover:bg-indigo-700 transition focus:outline-none focus:ring-2 focus:ring-indigo-400; }
+.btn-secondary { @apply inline-flex items-center justify-center bg-gray-100 text-gray-700 px-4 py-2 rounded-xl hover:bg-gray-200 transition; }
+
+header { @apply border-b border-gray-200 bg-white/70 backdrop-blur; }
+
+/* make content area a bit wider and give cards consistent look */
+main { max-width: 1200px; }
+
+/* table improvements */
+table { @apply w-full text-base; }
+table thead th { @apply text-gray-500 text-xs font-semibold tracking-wider uppercase; }
+table tbody tr { @apply border-t border-gray-100; }
+table tbody tr:hover { @apply bg-gray-50; }
+table td, table th { @apply py-4 px-4; }
+table td { @apply align-middle text-gray-800; }
+
+/* form improvements */
+input, select, textarea { @apply w-full border border-gray-200 rounded-xl px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-400 transition; }
+label { @apply text-sm font-medium text-gray-700; }

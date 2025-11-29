@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id         String    @id @default(uuid()) @db.Uuid
+  email      String    @unique
+  password   String
+  created_at DateTime  @default(now())
+  // Relation: one admin can have multiple sessions
+  sessions   Session[]
+}
+
+model Employee {
+  id         String    @id @default(uuid()) @db.Uuid
+  name       String
+  email      String    @unique
+  phone      String?
+  position   String?
+  salary     Int?
+  hire_date  DateTime?
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
+}
+
+model Session {
+  id           String   @id @default(uuid()) @db.Uuid
+  adminId      String   @db.Uuid
+  refreshToken String
+  csrfToken    String
+  createdAt    DateTime @default(now())
+  expiresAt    DateTime
+
+  admin Admin @relation(fields: [adminId], references: [id])
+}
