@@ -2,11 +2,13 @@
   "name": "ems-backend",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
-    "build": "tsc -p .",
-    "start": "node dist/index.js",
+    "dev": "ts-node-dev --respawn --transpile-only --esm src/index.ts",
+    "build-frontend": "cd ../frontend && npm install && npm run build && npm run export",
+    "build": "tsc -p . && echo '{\"type\": \"module\"}' > dist/package.json",
+    "start": "npm run build-frontend && node dist/index.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev --name init",
     "lint": "eslint . --ext .ts"

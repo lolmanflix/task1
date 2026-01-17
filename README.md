@@ -29,6 +29,23 @@ npm run dev
 
 Open the frontend at http://localhost:3000 (should redirect to /login). Backend docs (Swagger): http://localhost:4000/api-docs
 
+## Running Both Frontend and Backend Together
+
+You can run both the frontend and backend on the same port in production mode:
+
+### Manual Method:
+1. Build the frontend: `cd frontend && npm run build && npm run export`
+2. Move the output to the backend: `mv out ../backend/frontend/out`
+3. Run the backend: `cd ../backend && npm run build && npm start`
+
+### Automated Method (requires updated code):
+The automated method requires code modifications to the backend to serve the frontend files. To implement this:
+1. Modify `backend/src/app.ts` to serve static files from the frontend build directory when in production mode
+2. Ensure API routes are still accessible under `/api/*`
+3. All other routes should serve the frontend
+
+This serves the Next.js frontend from the same server as the backend API, eliminating CORS issues and allowing everything to run on a single port.
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR-SITE-ID/deploy-status)](https://app.netlify.com/sites/YOUR-SITE-NAME/deploys)
 
 ## Deployment Options
