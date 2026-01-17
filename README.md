@@ -49,7 +49,14 @@ This is a monorepo containing both frontend and backend. To deploy to Vercel:
 
 The Vercel configuration in `vercel.json`:
 - Defines the `NEXT_PUBLIC_API_URL` environment variable
-- Specifies build command to install and build the frontend
-- Sets the output directory to `frontend/out`
-- Sets the dev command to run the frontend in development mode
+
+### To Deploy to Vercel:
+1. Go to https://vercel.com and sign in
+2. Click "New Project" and import your GitHub repo (lolmanflix/task1)
+3. **Important**: In the project configuration, set the "Root Directory" to `frontend`
+4. Vercel should automatically detect this as a Next.js project
+5. Add the environment variable `NEXT_PUBLIC_API_URL` with the URL of your deployed backend (e.g., `https://your-backend-app.vercel.app`)
+6. Click "Deploy"
+
+**Note**: Setting the Root Directory to `frontend` is crucial for monorepo deployments. This tells Vercel to look for the Next.js application in the frontend directory rather than trying to build the entire repository.
 
