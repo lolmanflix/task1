@@ -2,8 +2,5 @@
   "version": 2,
   "env": {
     "NEXT_PUBLIC_API_URL": "https://your-deployed-backend-url"
-  },
-  "buildCommand": "cd frontend && npm install && npm run build",
-  "outputDirectory": "frontend/out",
-  "devCommand": "cd frontend && npm run dev"
+  }
 }
