@@ -1,6 +1,12 @@
 {
   "version": 2,
+  "builds": [
+    {
+      "src": "frontend/**",
+      "use": "@vercel/next"
+    }
+  ],
   "env": {
-    "NEXT_PUBLIC_API_URL": "https://your-deployed-backend-url"
+    "NEXT_PUBLIC_API_URL": "https://your-actual-backend-url.vercel.app"
   }
 }
