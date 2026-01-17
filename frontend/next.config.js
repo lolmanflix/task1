@@ -11,6 +11,27 @@ const nextConfig = {
         destination: NEXT_PUBLIC_API + '/:path*'
       }
     ];
+  },
+  // Export static site for Netlify deployment
+  trailingSlash: true,
+  exportPathMap: async function (defaultPathMap) {
+    if (process.env.NETLIFY) {
+      return {
+        '/': { page: '/' },
+        '/login': { page: '/login' },
+        '/signup': { page: '/signup' },
+        '/profile': { page: '/profile' },
+        '/account': { page: '/account' },
+        '/change-password': { page: '/change-password' },
+        '/reset-password': { page: '/reset-password' },
+        '/logout': { page: '/logout' },
+        '/employees': { page: '/employees' },
+        '/employees/add': { page: '/employees/add' },
+        '/admins': { page: '/admins' },
+        '/admins/add': { page: '/admins/add' },
+      };
+    }
+    return defaultPathMap;
   }
 };
 

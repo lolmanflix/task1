@@ -29,9 +29,11 @@ npm run dev
 
 Open the frontend at http://localhost:3000 (should redirect to /login). Backend docs (Swagger): http://localhost:4000/api-docs
 
-## Deployment to Vercel
+[![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR-SITE-ID/deploy-status)](https://app.netlify.com/sites/YOUR-SITE-NAME/deploys)
 
-This is a monorepo containing both frontend and backend. To deploy to Vercel:
+## Deployment Options
+
+This is a monorepo containing both frontend and backend. You can deploy the frontend to various platforms:
 
 ### Option 1: Deploy Frontend Only to Vercel
 
@@ -59,4 +61,17 @@ The Vercel configuration in `vercel.json`:
 6. Click "Deploy"
 
 **Note**: Setting the Root Directory to `frontend` is crucial for monorepo deployments. This tells Vercel to look for the Next.js application in the frontend directory rather than trying to build the entire repository.
+
+### To Deploy to Netlify:
+1. Go to https://netlify.com and sign in
+2. Click "Add new site" and select "Deploy with GitHub"
+3. Find and select your repository (lolmanflix/task1)
+4. In the build settings:
+   - Base directory: `frontend`
+   - Build command: `npm run build && npm run export`
+   - Publish directory: `frontend/out`
+5. Add the environment variable `NEXT_PUBLIC_API_URL` with your backend URL
+6. Click "Deploy"
+
+**Note**: The netlify.toml file in the repository handles the deployment configuration automatically.
 

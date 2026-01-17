@@ -1,0 +1,13 @@
+[build]
+  base = "frontend"
+  command = "npm run build && npm run export"
+  publish = "frontend/out"
+
+[build.environment]
+  NEXT_PUBLIC_API_URL = "https://your-actual-backend-url.vercel.app"
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/api/*"
+  to = "https://your-actual-backend-url.vercel.app/:splat"
+  status = 200
