@@ -48,7 +48,8 @@ This is a monorepo containing both frontend and backend. To deploy to Vercel:
 ## Configuration
 
 The Vercel configuration in `vercel.json`:
-- Sets the root directory to `frontend`
-- Uses the Next.js framework preset
 - Defines the `NEXT_PUBLIC_API_URL` environment variable
+- Specifies build command to install and build the frontend
+- Sets the output directory to `frontend/out`
+- Sets the dev command to run the frontend in development mode
 
